@@ -1,20 +1,21 @@
 <template>
   <div class="app">    
-    <SearchBar />
     <WeatherData />
+    <ForecastData/>
   </div>
 </template>
 
 <script>
 
-import SearchBar from './components/searchbar/SearchBar'
+
+import ForecastData from './components/forecast/ForecastData.vue';
 import WeatherData from './components/weather/WeatherData'
 
 export default {
   name: 'App',
   components: {
-    SearchBar,
-    WeatherData
-  }
+    WeatherData,
+    ForecastData
+}
 }
 </script>

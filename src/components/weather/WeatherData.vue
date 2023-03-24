@@ -1,25 +1,17 @@
 <template>
-    <div>
-
-
-      <div v-if="weather" class="weather-container">
-        <div class="weather-item">
-          <h2 class="weather-title">{{ weather.name }} / {{ weather.sys.country }} </h2>
-          <p>{{ Math.round(weather.main.temp) }}°C</p>
-          <p>{{ weather.weather[0].main }}</p>
-          <p>{{ weather.weather[0].description }}</p>
-          <p>{{ Math.round(weather.main.temp_min)  }} °C / {{ Math.round(weather.main.temp_max)  }} °C</p>
-        </div>
+    <div class="app">
+      <div class="header">
+        <h1>Weather Forecast</h1>
+        <SearchBar/>      
+      </div>
+      <div v-if="weather" class="content">        
+          <div class="city">{{ weather.name }} / {{ weather.sys.country }} </div>
+          <div class="temp">{{ Math.round(weather.main.temp) }}°C</div>
+          <BackgroundStyles class="desc"/>
+          <div class="minmax" >{{ Math.round(weather.main.temp_min)  }} °C / {{ Math.round(weather.main.temp_max)  }} °C</div>
       </div>
   
-      <div v-if="forecast.length">
-        <h2>4 Günlük Hava Tahmini</h2>
-        <div v-for="(item, index) in forecast" :key="index">
-          <p>{{ item.dt_txt }}</p>
-          <p>{{ item.main.temp }}°C</p>
-          <p>{{ item.weather[0].description }}</p>
-        </div>
-      </div>
+  
     </div>
   </template>
   
@@ -27,14 +19,21 @@
   import { computed } from 'vue'
   import { useStore } from 'vuex'
   import './WeatherData.styles.scss'
+  import SearchBar from '../searchbar/SearchBar.vue'
+import BackgroundStyles from '../background/BackgroundStyles.vue'
+
   
   export default {
+  components: { SearchBar, BackgroundStyles },
     name: 'WeatherInfo',
     setup() {
       const store = useStore()
+      
   
       const weather = computed(() => store.state.weather)
       const forecast = computed(() => store.state.forecast)
+
+      
   
       return {
         weather,

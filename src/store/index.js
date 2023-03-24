@@ -34,7 +34,15 @@ export default createStore({
       try {
         const url = `https://api.openweathermap.org/data/2.5/forecast?q=${state.city}&appid=${key}&units=metric`;
         const response = await axios.get(url);
-        commit("setForecast", response.data.list);
+
+        // 4 günlük tahminleri alma
+        const forecast = response.data.list.filter((item) => {
+          // "12:00:00" saat dilimine sahip tahminleri al
+          return item.dt_txt.endsWith("12:00:00");
+        });
+
+        commit("setForecast", forecast);
+        console.log(forecast, 1);
       } catch (error) {
         console.error(error);
       }

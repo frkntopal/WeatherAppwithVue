@@ -1,8 +1,6 @@
-<template>
-    <h1 class="header">Hava Durumu Uygulaması</h1>
-    <form @submit.prevent="searchWeather" class="form-container">
-      <input type="search" v-model="city" placeholder="Şehir Adı Girin" />
-      
+<template>    
+    <form @submit.prevent="searchWeather" >
+      <input class="form-container" type="search" v-model="city" placeholder="Enter the city" />    
     </form>
   </template>
   
