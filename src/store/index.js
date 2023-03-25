@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import axios from "axios";
-const key = "9e06b5a1281bc72228b7f14c9e850bb5";
+
+const key = process.env.VUE_APP_WEATHER_API_KEY;
 
 export default createStore({
   state: {
@@ -8,6 +9,7 @@ export default createStore({
     weather: null,
     forecast: [],
   },
+
   mutations: {
     setCity(state, payload) {
       state.city = payload;
@@ -18,13 +20,23 @@ export default createStore({
     setForecast(state, payload) {
       state.forecast = payload;
     },
+    setLat(state, payload) {
+      state.lat = payload;
+    },
+    setLon(state, payload) {
+      state.lon = payload;
+    },
   },
+
   actions: {
     async getWeather({ state, commit }) {
       try {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${state.city}&appid=${key}&units=metric`;
         const response = await axios.get(url);
         commit("setWeather", response.data);
+        commit("setLat", response.data.coord.lat);
+        commit("setLon", response.data.coord.lon);
+        console.log(response.data.coord.lon, response.data.coord.lat);
         console.log(response.data);
       } catch (error) {
         console.error(error);

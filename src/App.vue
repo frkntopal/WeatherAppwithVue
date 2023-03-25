@@ -1,5 +1,5 @@
 <template>
-  <div class="app">    
+  <div class="app">        
     <WeatherData />
     <ForecastData/>
   </div>
@@ -11,11 +11,18 @@
 import ForecastData from './components/forecast/ForecastData.vue';
 import WeatherData from './components/weather/WeatherData'
 
+
 export default {
   name: 'App',
   components: {
     WeatherData,
-    ForecastData
+    ForecastData,
+    
 }
 }
 </script>
+<style>
+body {
+  background-color: #19A7CE;
+}
+</style>

@@ -39,7 +39,7 @@ const weatherStyles = {
     backgroundPosition : "center center"
   },
   'default': {
-    background: 'white',
+    background: 'url("https://www.corluhaber.com.tr/images/haberler/2017/09/tekirdag-icin-5-gunluk-hava-tahmini.gif")',
     cover: "cover",
     backgroundPosition : "center center"
   }
