@@ -21,6 +21,9 @@
 - **[OpenWeatherApi](https://openweathermap.org/api)**
 - **[GoogleMapApi](https://mapsplatform.google.com/)**
 
+### You can visit my linkedin address for a video view of the project 
+> [LinkedIn project address](https://www.linkedin.com/feed/update/urn:li:activity:7045388478091567104/)
+
 ## **The appearance of the project ;**
 ![gif1](https://user-images.githubusercontent.com/100241189/229098393-4f0ee115-e5ca-4f10-8b00-5a66a593f951.gif)
 
